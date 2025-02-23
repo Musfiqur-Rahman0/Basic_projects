@@ -101,3 +101,14 @@ figure {
     width: 60px;
     object-fit: contain;
 }
+
+
+.errorEffect {
+    animation: error 0.2s  linear  ;
+}
+@keyframes error {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}

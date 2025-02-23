@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My todo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            justify-content: center;
+            background-color: snow;
+        }
+
+        .container {
+            min-height: 350px;
+            min-width: 70%;
+            flex-direction: column;
+            gap: 1.25rem;
+
+        }
+
+        .input_container,
+        .container,
+        .task,
+        body {
+            display: flex;
+            align-items: center;
+        }
+
+        .input_container,
+        .task {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        #title {
+            font-size: clamp(2rem, calc(3vw + 1rem), 3rem);
+            text-align: center;
+            text-transform: uppercase;
+            color: rgb(116, 119, 128);
+        }
+
+        #addTaskBtn {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            background-color: rgb(72, 115, 233);
+            color: white;
+            border-radius: 8px;
+        }
+
+        #addTaskBtn:active {
+            transform: scale(0.9);
+        }
+
+        #taskInput {
+            width: 80%;
+            padding: 10px 20px;
+            font-size: 1rem;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .taskContainer {
+            padding: 20px;
+            border-radius: 16px;
+            background-color: #eee9e9;
+            width: 100%;
+        }
+
+        .task {
+            list-style: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .task>button {
+            cursor: pointer;
+            background-color: red;
+            outline: none;
+            border: none;
+            font-weight: 500;
+            font-size: 0.8rem;
+            padding: 5px 15px;
+            border-radius: 8px;
+            color: white;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="title">ToDo List</h2>
+        <div class="input_container">
+            <input id="taskInput" type="text" placeholder="Write your task">
+            <button id="addTaskBtn"> Add Task</button>
+        </div>
+        <div class="taskContainer">
+            <ul id="listContainer">
+                <li class="task">
+                    <p>lorem1</p>
+                    <button class="deleteBtn">delete</button>
+                </li>
+                <li class="task">
+                    <p>lorem2</p>
+                    <button class="deleteBtn">delete</button>
+                </li>
+                <li class="task">
+                    <p>lorem3</p>
+                    <button class="deleteBtn">delete</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

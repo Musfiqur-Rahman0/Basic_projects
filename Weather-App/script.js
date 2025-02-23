@@ -8,9 +8,19 @@ const feel_like = document.querySelector(".feel-like");
 const Pressure = document.querySelector(".preasure");
 const Humidity = document.querySelector(".humanitidy");
 const tempMax = document.querySelector(".temp_max");
+const container = document.querySelector(".container");
 
 const key = "f512d90d0534f2c14e1921b2bbe931bb";
 let city = "Dhaka";
+const errorSound = new Audio("audio/error-126627.mp3");
+const clickSound = new Audio("audio/click-234708.mp3");
+
+function playErrorSound() {
+  errorSound.play();
+}
+function playClickSound() {
+  clickSound.play();
+}
 
 const getWeather = async () => {
   city = input.value.trim() || city;
@@ -19,7 +29,14 @@ const getWeather = async () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setData(data);
+      if (data.cod !== 200) {
+        container.classList.add("errorEffect");
+        container.classList.contains("errorEffect") && playErrorSound();
+        // here if the container contains the error class then it should play the sound
+      } else {
+        container.classList.remove("errorEffect");
+        setData(data);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -73,5 +90,4 @@ function init() {
     }
   );
 }
-
 init();
